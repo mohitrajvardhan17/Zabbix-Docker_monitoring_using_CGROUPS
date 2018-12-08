@@ -20,11 +20,11 @@ Following points needs to be fulfill before starting the implementation:
 
 # Installation Steps:
 Follow the below mentioned steps to configure docker monitoring using zabbix-agent
-1. COPY the [userparameter_docker.conf](https://raw.githubusercontent.com/mohitrajvardhan17/Zabbix-Docker_monitoring_using_CGROUPS/master/userparameter_docker.conf) file in the server(aka HOST-ONE) running the zabbix-agent in the "/etc/zabbix/zabbix_agentd.d/" directory.
-2. COPY the [DockerMonitoring.py](https://raw.githubusercontent.com/mohitrajvardhan17/Zabbix-Docker_monitoring_using_CGROUPS/master/DockerMonitoring.py) file in the same server(aka HOST-ONE) containing the zabbix-agent in the "/etc/zabbix/" directory.
+1. COPY the [userparameter_docker.conf](https://raw.githubusercontent.com/mohitrajvardhan17/Zabbix-Docker_monitoring_using_CGROUPS/master/userparameter_docker.conf) file on the server(aka HOST-ONE) running the zabbix-agent in the "/etc/zabbix/zabbix_agentd.d/" directory.
+2. COPY the [DockerMonitoring.py](https://raw.githubusercontent.com/mohitrajvardhan17/Zabbix-Docker_monitoring_using_CGROUPS/master/DockerMonitoring.py) file on the same server(aka HOST-ONE) containing the zabbix-agent in the "/etc/zabbix/" directory.
 3. RESTART the zabbix-agent running on the same server(aka HOST-ONE) using the command "systemctl restart zabbix-agent".
-4. IMPORT the [zbx_docker_templates.xml](https://raw.githubusercontent.com/mohitrajvardhan17/Zabbix-Docker_monitoring_using_CGROUPS/master/zbx_docker_templates.xml) template from the Zabbix frontend.(for any help related with importing the template:[click here](https://www.zabbix.com/documentation/3.2/manual/web_interface/frontend_sections/configuration/templates))
-5. APPLY the [zbx_docker_templates.xml](https://raw.githubusercontent.com/mohitrajvardhan17/Zabbix-Docker_monitoring_using_CGROUPS/master/zbx_docker_templates.xml) template on the same server(aka HOST-ONE) containing the zabbix-agent.(for any help related with applying the template on host:[click here](https://www.zabbix.com/documentation/3.2/manual/config/templates/linking))
+4. IMPORT the [zbx_docker_templates.xml](https://raw.githubusercontent.com/mohitrajvardhan17/Zabbix-Docker_monitoring_using_CGROUPS/master/zbx_docker_templates.xml) template from the Zabbix frontend.(for any help related with importing the template: [click here](https://www.zabbix.com/documentation/3.2/manual/web_interface/frontend_sections/configuration/templates))
+5. APPLY the [zbx_docker_templates.xml](https://raw.githubusercontent.com/mohitrajvardhan17/Zabbix-Docker_monitoring_using_CGROUPS/master/zbx_docker_templates.xml) template on the same server(aka HOST-ONE) containing the zabbix-agent.(for any help related with applying the template on host: [click here](https://www.zabbix.com/documentation/3.2/manual/config/templates/linking))
 
 
 # Support
