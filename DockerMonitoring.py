@@ -66,6 +66,8 @@ class DockerMonitoring:
 		try:
 			if(self.containerAvailability(dockerContainerId)=="1"):
 				memoryUsage = Decimal(long(subprocess.check_output("cat /sys/fs/cgroup/memory/docker/"+dockerContainerId+"/memory.usage_in_bytes", shell=True))/(1024))
+				memoryCache = Decimal(long(subprocess.check_output("cat /sys/fs/cgroup/memory/docker/"+dockerContainerId+"/memory.stat | grep -i cache | head -n 1 | awk '{ print $2 }'", shell=True))/(1024))
+				memoryUsage = memoryUsage - memoryCache
 				memoryLimit = Decimal(long(subprocess.check_output("cat /sys/fs/cgroup/memory/docker/"+dockerContainerId+"/memory.limit_in_bytes", shell=True))/(1024))
 				hostMemoryLimit = Decimal(subprocess.check_output("cat /proc/meminfo|grep -w MemTotal|awk '{split($0,a,\" \"); printf a[2]}'", shell=True))
 				if(memoryLimit > hostMemoryLimit):
