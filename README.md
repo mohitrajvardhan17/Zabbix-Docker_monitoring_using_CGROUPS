@@ -11,7 +11,7 @@ This project focuses on configuring basic docker monitoring using zabbix-agent.T
 6. Used swap memory(Bytes)
 
 # Pre-requisite
-Following points needs to be fulfill before starting the implementation:
+Following points needs to be fulfilled before starting the implementation:
 - Docker container should be running inside docker-swarm on the server which needs to be monitored.
 - Docker API should be enabled and accessible by running the command "curl --silent --unix-socket /var/run/docker.sock http:/containers/json".
 - Docker container should be mounted on the cgroup.This could be checked by running the command "ls -ltra /sys/fs/cgroup/cpu/docker/[CONTAINER-ID]".(Note:Replace "[CONTAINER-ID]" in the command with the your docker container id)
