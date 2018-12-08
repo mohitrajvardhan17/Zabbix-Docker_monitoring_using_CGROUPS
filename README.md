@@ -1,11 +1,14 @@
 # Zabbix-Docker_monitoring_using_CGROUPS
-This project contains the steps for monitoring the docker container using linux cgroups.
+This project contains the steps to configure zabbix monitoring for the docker-container(using linux cgroups) which are running inside docker-swarm.
 
 # Introduction
 
 
 
 # Prerequisite
+Following points needs to be fulfill before starting the implementation:
+- 1. Docker container should be running inside socker-swarm on the server.
+- 2. Docker 
 
 # Installation Steps:
 
