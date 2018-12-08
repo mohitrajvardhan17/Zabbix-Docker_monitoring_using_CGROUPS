@@ -34,7 +34,7 @@ class DockerMonitoring:
 	def containerAvailability(self,dockerContainerId):
 		try:
 			if(os.path.exists("/sys/fs/cgroup/cpu/docker/"+str(dockerContainerId))):
-				return subprocess.check_output("ps -ef | grep -w \"docker-containerd-shim "+str(dockerContainerId)+"\" | wc -l | awk '{if($1 >= 3) {printf 1;} else {printf 0;}}'", shell=True)
+				return subprocess.check_output("ps -ef | grep -w \""+str(dockerContainerId)+"\" | wc -l | awk '{if($1 >= 2) {printf 1;} else {printf 0;}}'", shell=True)
 			else:
 				return ""
 		except Exception as e:
