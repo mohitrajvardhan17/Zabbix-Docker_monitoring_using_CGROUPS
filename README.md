@@ -1,5 +1,5 @@
 # Zabbix-Docker_monitoring_using_CGROUPS
-This project contains the steps to configure zabbix monitoring for the docker container(using linux cgroups) which are running inside docker-swarm.
+This project contains the steps to configure zabbix-agent based monitoring for the docker container(using linux cgroups) which are running inside docker-swarm.
 
 # Introduction
 This project focuses on configuring basic docker monitoring using zabbix-agent.The metric related with docker container which would be monitored as part of this project is mentioned below:
