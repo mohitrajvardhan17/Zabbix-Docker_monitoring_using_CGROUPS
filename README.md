@@ -14,13 +14,18 @@ This project focuses on configuring basic docker monitoring using zabbix-agent.T
 Following points needs to be fulfill before starting the implementation:
 - Docker container should be running inside docker-swarm on the server which needs to be monitored.
 - Docker API should be enabled and accessible by running the command "curl --silent --unix-socket /var/run/docker.sock http:/containers/json".
-- Docker container should be mounted on the cgroup.This could be checked running the command "ls -ltra /sys/fs/cgroup/cpu/docker/[CONTAINER-ID]".(Note:Replace "[CONTAINER-ID]" in the command with the your docker container id)
+- Docker container should be mounted on the cgroup.This could be checked by running the command "ls -ltra /sys/fs/cgroup/cpu/docker/[CONTAINER-ID]".(Note:Replace "[CONTAINER-ID]" in the command with the your docker container id)
 - This project was built on Python 2.7.5 hence the same Python version or any latest version compatible with Python 2.7.5 would be required.
 - This project has been tested and implemented on "Red Hat Enterprise Linux Server 7.2 (Maipo)" and may not work on any other Linux distribution.
 
 # Installation Steps:
+Follow the below mentioned steps to configure docker monitoring using zabbix-agent
+1. COPY the [userparameter_docker.conf](https://raw.githubusercontent.com/mohitrajvardhan17/Zabbix-Docker_monitoring_using_CGROUPS/master/userparameter_docker.conf) file in the server(aka HOST-ONE) running the zabbix-agent in the "/etc/zabbix/zabbix_agentd.d/" directory.
+2. COPY the [DockerMonitoring.py](https://raw.githubusercontent.com/mohitrajvardhan17/Zabbix-Docker_monitoring_using_CGROUPS/master/DockerMonitoring.py) file in the same server(aka HOST-ONE) containing the zabbix-agent in the "/etc/zabbix/" directory.
+3. RESTART the zabbix-agent running on the same server(aka HOST-ONE) using the command "systemctl restart zabbix-agent".
+4. IMPORT the [zbx_docker_templates.xml](https://raw.githubusercontent.com/mohitrajvardhan17/Zabbix-Docker_monitoring_using_CGROUPS/master/zbx_docker_templates.xml) template from the Zabbix frontend.(for any help related with importing the template:[click here](https://www.zabbix.com/documentation/3.2/manual/web_interface/frontend_sections/configuration/templates))
+5. APPLY the [zbx_docker_templates.xml](https://raw.githubusercontent.com/mohitrajvardhan17/Zabbix-Docker_monitoring_using_CGROUPS/master/zbx_docker_templates.xml) template on the same server(aka HOST-ONE) containing the zabbix-agent.(for any help related with applying the template on host:[click here](https://www.zabbix.com/documentation/3.2/manual/config/templates/linking))
 
-Add the userparameter_docker.conf file in the server containing the zabbix agent under the path /etc/zabbix/zabbix_agentd.d/
 
 # Support
  - First try to troubleshoot problems yourself. Increase debug level and check the agent logs. Try to obtain raw values from the agent.
